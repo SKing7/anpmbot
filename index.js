@@ -5,12 +5,21 @@ var fs = require('fs');
 var _ = require('lodash');
 var exec = require('sync-exec');
 var cacheFile = 'cache.json';
+var fullPath = path.join(process.cwd(), cacheFile);
 
 winston.loggers.add('colored', {
     console: {
         colorize: true,
     },
 });
+var initCache = function () {
+    if (fs.existsSync(fullPath)) { 
+        return;
+    } 
+    fs.writeFile(fullPath, '');
+};
+
+initCache();
 
 var logger = winston.loggers.get('colored');
 
@@ -112,7 +121,6 @@ function anonymous() {
     };
     var checkVersion = function (tv) {
         var v;
-        var fullPath = path.join(process.cwd(), cacheFile);
         v = fs.readFileSync(fullPath).toString();
         if (!tv || !v) {
             //tv != '' && v = '' 第一次运行
