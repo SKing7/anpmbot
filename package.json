@@ -1,0 +1,21 @@
+{
+  "name": "anpmbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test"
+  },
+  "keywords": [
+    "auto",
+    "update",
+    "npm",
+    "modules"
+  ],
+  "author": "sking7",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.9.3",
+    "winston": "^1.0.0"
+  }
+}
