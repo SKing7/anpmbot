@@ -1,22 +1,32 @@
 # anpmbot
 auto npm install/update by package.json
 
-##install
-
+###INSTALL
+```shell
    npm install anpmbot
+```
+###OPTIONS
+#### packageJson
 
-##options
+package.json的路径，相对于process.cwd()
+
+#### moduleUpdateOnlyLimit
+
+update时，仅检查moduleUpdateOnlyLimit中的模块，为空或者不设置，则视为所有模块
+
+#### package
+
+设置是否检查对应类型的模块
+
+```js
+package: {
+   devDependencies: boolean,
+   dependencies: boolean, 
+}
+
 ```
-    {
-        packageJson: './package.json', //package.json的路径，相对于process.cwd()
-        moduleUpdateOnlyLimit: [], //仅检查列出的模块
-        packages: {
-            devDependencies: true, //是否检查类型devDependencies
-            dependencies: true, //是否检查类型devDependencies
-        }
-    }
-```
-##usage
+
+###USAGE
 
 ```js
     var anpmbot = require(anpmbot);
@@ -31,12 +41,9 @@ auto npm install/update by package.json
     anpmbot.run();
 ```
 
-#sample
+###SAMPLE
 
 ```shell
-    git clone git@github.com:SKing7/anpmbot.git
-    cd anpmbot
-    npm install anpmbot --production
     #run sample
     npm test
 ```
