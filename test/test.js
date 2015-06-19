@@ -1,4 +1,4 @@
-var anpmbot = require('../index')();
+var anpmbot = require('../index');
 anpmbot.config({
     packageJson: './test/package.test.json',
     moduleUpdateOnlyLimit: ['compscaf'],

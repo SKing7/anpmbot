@@ -1,8 +1,16 @@
-var logger = require('winston');
+var winston = require('winston');
 var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
-var exec = require('child_process').exec;
+var exec = require('sync-exec');
+
+winston.loggers.add('colored', {
+    console: {
+        colorize: true,
+    },
+});
+
+var logger = winston.loggers.get('colored');
 
 function anonymous() {
     var exports = {
@@ -72,8 +80,7 @@ function anonymous() {
         return moduleSet;
     };
     var isInstalled = function (mod) {
-        var stats = fs.lstatSync(path.join(process.cwd(), 'node_modules', mod));
-        if (stats.isDirectory()) {
+        if (fs.existsSync(path.join(process.cwd(), 'node_modules', mod))) {
             return true;
         }
         return false;
@@ -90,10 +97,12 @@ function anonymous() {
                 return;
             }
             spawnCode = getSpawnOptions(updateType, mod.name, mod.installType).join(' ');
-            logger.log('info', spawnCode);
-            exec(spawnCode, [], {
+            var processInfo = exec(spawnCode, {
                 cwd: process.cwd()
             })
+            logger.log('info', spawnCode);
+            logger.log('info', processInfo.stdout);
+            logger.log('warn', processInfo.stderr);
         });
 
     };
