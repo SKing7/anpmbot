@@ -14,6 +14,10 @@ package.json的路径，相对于process.cwd()
 
 update时，仅检查moduleUpdateOnlyLimit中的模块，为空或者不设置，则视为所有模块
 
+#### version [x.x.x]
+
+可设置版本号，只有本次版本号比上次更新时的版本号高时，才进行更新
+
 #### package
 
 设置是否检查对应类型的模块
@@ -37,6 +41,7 @@ package: {
             devDependencies: true,
             dependencies: true,
         },
+        version: '0.0.1'
     });
     anpmbot.run();
 ```
