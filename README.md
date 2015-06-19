@@ -1,11 +1,11 @@
 # anpmbot
 auto npm install/update by package.json
 
-##install
+##INSTALL
 ```shell
    npm install anpmbot
 ```
-##options
+##OPTIONS
 #### packageJson
 
 package.json的路径，相对于process.cwd()
@@ -26,17 +26,7 @@ package: {
 
 ```
 
-```js
-    {
-        packageJson: './package.json', 
-        moduleUpdateOnlyLimit: ['test'], 
-        packages: {
-            devDependencies: true, //是否检查类型devDependencies
-            dependencies: true, //是否检查类型devDependencies
-        }
-    }
-```
-##usage
+##USAGE
 
 ```js
     var anpmbot = require(anpmbot);
@@ -51,7 +41,7 @@ package: {
     anpmbot.run();
 ```
 
-#sample
+#SAMPLE
 
 ```shell
     git clone git@github.com:SKing7/anpmbot.git
