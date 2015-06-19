@@ -44,9 +44,6 @@ package: {
 ###SAMPLE
 
 ```shell
-    git clone git@github.com:SKing7/anpmbot.git
-    cd anpmbot
-    npm install anpmbot --production
     #run sample
     npm test
 ```
