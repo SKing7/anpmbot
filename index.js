@@ -4,7 +4,7 @@ var fs = require('fs');
 var _ = require('lodash');
 var exec = require('child_process').exec;
 
-module.exports = function () {
+function anonymous() {
     var exports = {
         options: {},
     };
@@ -111,3 +111,4 @@ module.exports = function () {
     };
     return exports;
 }
+module.exports = anonymous(); 
