@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^3.9.3",
+    "semver": "^4.3.6",
     "sync-exec": "^0.5.0",
     "winston": "^1.0.0"
   },

@@ -1,8 +1,10 @@
 var winston = require('winston');
+var semver = require('semver');
 var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 var exec = require('sync-exec');
+var cacheFile = 'cache.json';
 
 winston.loggers.add('colored', {
     console: {
@@ -108,10 +110,27 @@ function anonymous() {
         });
 
     };
+    var checkVersion = function (tv) {
+        var v;
+        var fullPath = path.join(process.cwd(), cacheFile);
+        v = fs.readFileSync(fullPath).toString();
+        if (!tv || !v) {
+            //tv != '' && v = '' 第一次运行
+            //tv = '' && v != '' 每次都check
+            if (tv) {
+                fs.writeFile(fullPath, tv);
+            }
+            return true;
+        }
+        return semver.gt(tv, v)
+    };
     exports.run = function () {
-        var packages = _.filter([devDeps, prodDeps], function (obj) {
-            return  exports.options.packages[obj.type]
-        });
+        var options = exports.options;
+        if (checkVersion(options.version)) {
+            var packages = _.filter([devDeps, prodDeps], function (obj) {
+                return  options.packages[obj.type]
+            });
+        }
         updatePackage(packages);
     };
     exports.config = function (config) {

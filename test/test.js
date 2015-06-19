@@ -6,5 +6,6 @@ anpmbot.config({
         devDependencies: true,
         dependencies: true,
     },
+    version: '0.0.2'
 });
 anpmbot.run();
