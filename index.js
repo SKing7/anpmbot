@@ -147,7 +147,6 @@ function anonymous() {
     exports.updateModules = function () {
         getModulesList();
     };
-    exec('touch ./cache.json');
     return exports;
 }
 module.exports = anonymous(); 
