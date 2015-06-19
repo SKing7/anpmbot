@@ -6,15 +6,15 @@ auto npm install/update by package.json
    npm install anpmbot
 ```
 ##options
-### packageJson
+#### packageJson
 
 package.json的路径，相对于process.cwd()
 
-###moduleUpdateOnlyLimit
+#### moduleUpdateOnlyLimit
 
 update时，仅检查moduleUpdateOnlyLimit中的模块，为空或者不设置，则视为所有模块
 
-###package
+#### package
 
 设置是否检查对应类型的模块
 
