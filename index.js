@@ -126,11 +126,14 @@ function anonymous() {
             //tv != '' && v = '' 第一次运行
             //tv = '' && v != '' 每次都check
             if (tv) {
-                fs.writeFile(fullPath, tv);
+                fs.writeFileSync(fullPath, tv);
             }
             return true;
         }
-        return semver.gt(tv, v)
+        if (semver.gt(tv, v)) {
+            fs.writeFileSync(fullPath, tv);
+            return true;
+        }
     };
     exports.run = function () {
         var options = exports.options;
