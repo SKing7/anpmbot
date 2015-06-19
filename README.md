@@ -2,10 +2,11 @@
 auto npm install/update by package.json
 
 ##install
+
    npm install anpmbot
 
 ##options
-```json
+```
     {
         packageJson: './package.json', //package.json的路径，相对于process.cwd()
         moduleUpdateOnlyLimit: [], //仅检查列出的模块
@@ -16,6 +17,7 @@ auto npm install/update by package.json
     }
 ```
 ##usage
+
 ```js
     var anpmbot = require(anpmbot);
     anpmbot.config({
