@@ -1,8 +1,9 @@
 # anpmbot
 auto npm install/update by package.json
 
-根据package.json的依赖关系，对指定模块可以自动进行更新和安装到最新版本
-并且支持通过版本号来判断是否需要检查依赖关系。
+根据package.json的依赖关系，对指定模块或全部【如不设】可以自动进行更新和安装到最新版本
+
+另外因为检查更新比较耗时，支持通过手动维护版本号来判断是否需要检查的版本号。
 
 ###INSTALL
 ```shell
