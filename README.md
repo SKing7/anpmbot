@@ -22,6 +22,8 @@ update时，仅检查moduleUpdateOnlyLimit中的模块，为空或者不设置�
 
 可设置版本号，只有本次版本号比上次更新时的版本号高时，才进行更新
 
+非安装模块的版本号，是anpmbot自身维护的本地cache版本号
+
 #### package
 
 设置是否检查对应类型的模块
