@@ -5,7 +5,7 @@ var fs = require('fs');
 var _ = require('lodash');
 var exec = require('sync-exec');
 var cacheFile = 'cache.json';
-var fullPath = path.join(process.cwd(), cacheFile);
+var fullPath = path.join(__dirname, cacheFile);
 
 winston.loggers.add('colored', {
     console: {
