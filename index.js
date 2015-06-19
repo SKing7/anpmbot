@@ -97,12 +97,14 @@ function anonymous() {
                 return;
             }
             spawnCode = getSpawnOptions(updateType, mod.name, mod.installType).join(' ');
+            logger.log('info', spawnCode);
             var processInfo = exec(spawnCode, {
                 cwd: process.cwd()
             })
-            logger.log('info', spawnCode);
-            logger.log('info', processInfo.stdout);
-            logger.log('warn', processInfo.stderr);
+            if (processInfo.stdout)
+                logger.log('info', processInfo.stdout);
+            if (processInfo.stderr)
+                logger.log('warn', processInfo.stderr);
         });
 
     };
