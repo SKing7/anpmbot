@@ -39,7 +39,7 @@ package: {
 ###USAGE
 
 ```js
-    var anpmbot = require(anpmbot);
+    var anpmbot = require('anpmbot');
     anpmbot.config({
         packageJson: './package.json',
         moduleUpdateOnlyLimit: ['compscaf'],
